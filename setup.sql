@@ -1,3 +1,4 @@
+
 use database SAP_LLM_ANALYST2;
 
 use schema PUBLIC;
@@ -414,6 +415,7 @@ from @SAP_RAW.CSV_FILES/0material_attr
 FILE_FORMAT = (TYPE = CSV);
 
 
+
 ---- SOME CLEANUP
 
 -- fill in the business unit BEGRU so that data is not empty
@@ -428,6 +430,15 @@ SET BEGRU =
     END;
 
 
+UPDATE "CUSTOMER"
+SET BEGRU = 
+    CASE MOD(ABS(RANDOM()), 5) 
+        WHEN 0 THEN 'TECH'  
+        WHEN 1 THEN 'FINC'  
+        WHEN 2 THEN 'HLTH'  
+        WHEN 3 THEN 'RETL'  
+        WHEN 4 THEN 'ENRG'  
+    END;
 -- add into customer attributes the missing customer numbers (KUNNR) from fi_ar_4
 INSERT INTO "0customer_attr" (
     MANDT, KUNNR, ADRNR, ANRED, AUFSD, BAHNE, BAHNS, BBBNR, BBSNR, BEGRU, BRSCH, BUBKZ, DATLT, ERDAT, ERNAM, EXABL, 

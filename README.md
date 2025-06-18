@@ -1,7 +1,7 @@
 # SAP LLM ANALYST DEMO
 
-1. Copy/Past and run all these in a Snowflake Worksheet. This will setup the git connection, fetch the repository
-and will run the setup.sql script to setup the RAW layer. It will also creat the Notebook to be run
+1. Copy/Paste and run all these in a Snowflake Worksheet. This will setup the git connection, fetch the repository
+and will run the setup.sql script to setup the RAW layer. It will also create the Notebook to be run.
 
 ```sql
 
